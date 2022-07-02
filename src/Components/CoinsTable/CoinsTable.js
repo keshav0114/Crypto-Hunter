@@ -3,7 +3,7 @@ import { CoinList } from "../../Config/Api";
 import { CryptoState } from "../../Cryptocontext";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import axios from "axios";
-import { Container, fontWeight } from "@mui/system";
+import { Container } from "@mui/system";
 import {
   LinearProgress,
   Pagination,
@@ -95,7 +95,7 @@ function CoinsTable() {
 
                 <TableBody>
                   {handleSearch()
-                    .splice((page - 1) * 10, (page - 1) * 10 + 10)
+                    .slice((page - 1) * 10, (page - 1) * 10 + 10)
                     .map((row) => {
                       const profit = row.price_change_percentage_24h > 0;
                       return (
@@ -173,12 +173,12 @@ function CoinsTable() {
               justifyContent: "center",
             }}
             className="pagination"
-            count={Number((handleSearch().length / 10).toFixed(0))}
+            count={Number((handleSearch()?.length / 10).toFixed(0))}
             onChange={(_, value) => {
               setPage(value);
               window.scroll(0, 450);
             }}
-          ></Pagination>
+          />
         </Container>
       </ThemeProvider>
     </>
