@@ -4,7 +4,7 @@ import { CryptoState } from "../../Cryptocontext";
 import axios from "axios";
 import { SingleCoin } from "../../Config/Api";
 import CoinInfo from "../../Components/CoinInfo/CoinInfo";
-import { Box, Container, styled } from "@mui/system";
+import { styled } from "@mui/system";
 import { LinearProgress, Typography } from "@mui/material";
 
 function CoinPage() {
@@ -16,7 +16,6 @@ function CoinPage() {
     const { data } = await axios.get(SingleCoin(id));
     setCoin(data);
   };
-  // console.log(coin);
   useEffect(() => {
     fetchCoin();
   }, []);
